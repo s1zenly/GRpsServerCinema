@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package ru.hse.software.grpc;
+
+service UserService {
+    rpc Register(APIRequest) returns (APIResponse);
+    rpc Login(APIRequest) returns (APIResponse);
+    rpc Logout(Empty) returns (APIResponse);
+}
+
+message APIRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message APIResponse {
+    string response_message = 1;
+    int32 response_code = 2;
+}
+
+message Empty {}

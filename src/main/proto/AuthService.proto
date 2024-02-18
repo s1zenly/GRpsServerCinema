@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package ru.hse.software.grpc;
+
+service AuthService {
+  rpc Authenticate(JwtRequest) returns (JWToken);
+}
+
+message JwtRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message JWToken {
+  string jwtToken = 1;
+}
